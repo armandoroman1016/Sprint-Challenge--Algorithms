@@ -92,12 +92,51 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+
+        # swap for the 0th element in the list
+        self.swap_item()
+
+        self.set_light_on()
+
+        # helper
+        def sort_helper(self):
+
+        # if robot cannot move right and and the and the light is on
+            if not self.can_move_right() and self.compare_item() == None and self.light_is_on():
+                # swapping the none item at the end of the list with the largest num
+                self.swap_item()
+                self.set_light_off()
+                return
+
+            # moving towards the end of the list
+            while self.can_move_right():
+
+                self.move_right()
+
+                # if the item held is not less then the item at cur index, swap the items
+                if self.compare_item() != -1:
+                    self.swap_item()
+
+            # once we are at the right most index start to move towards the beginning
+            while self.can_move_left() and self.compare_item() != None:
+                self.move_left()
+
+                # is the item held is greater then the item at cur index, swap 
+                if self.compare_item() == None or self.compare_item() == 1:
+                    self.swap_item()
+
+            # if light is still on the list is unsorted and we need to call on the function again
+            while self.light_is_on():
+                sort_helper(self)
+            
+        
+        sort_helper(self)
 
 
 if __name__ == "__main__":
