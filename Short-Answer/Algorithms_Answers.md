@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a) O(n^ 2) - as N increases the the conditional statement will grow exponentially
 
 
-b)
+b) O(n) The block of code's runtime will increase proportionally with n 
 
 
-c)
+c) O(n) This recursive function is called n times
 
 ## Exercise II
 
