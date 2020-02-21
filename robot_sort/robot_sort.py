@@ -107,9 +107,11 @@ class SortingRobot:
         # helper
         def sort_helper(self):
 
+        # final iteration will have moved the none type to the end of the sorted list
+        # robot is holding largest value currently
         # if robot cannot move right and and the and the light is on
             if not self.can_move_right() and self.compare_item() == None and self.light_is_on():
-                # swapping the none item at the end of the list with the largest num
+                # swap the items and return
                 self.swap_item()
                 self.set_light_off()
                 return
@@ -117,6 +119,7 @@ class SortingRobot:
             # moving towards the end of the list
             while self.can_move_right():
 
+                # starting position increments on each call
                 self.move_right()
 
                 # if the item held is not less then the item at cur index, swap the items
@@ -139,6 +142,16 @@ class SortingRobot:
         sort_helper(self)
 
 
+
+robot_1 = SortingRobot([4, 3, 1, 2])
+
+robot_1.sort()
+
+print(robot_1._list)
+
+
+
+
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
@@ -147,5 +160,5 @@ if __name__ == "__main__":
 
     robot = SortingRobot(l)
 
-    robot.sort()
-    print(robot._list)
+    # robot.sort()
+    # print(robot._list)
